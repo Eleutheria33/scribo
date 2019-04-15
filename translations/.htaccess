@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteBase /
+  RewriteCond %{REQUEST_URI} !^/public/
+  AddType video/mp4 .mp4 .m4v
+  RewriteRule ^(.*)$ /public/$1 [R,L]
+</IfModule>
+

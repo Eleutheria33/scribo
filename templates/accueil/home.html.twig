@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}scribo-accueil{% endblock %}
+
+{% block body %}
+
+<div class="" id="haut">
+  <video autoplay muted loop id="myVideo">
+    <source src="{{ asset('videos/ecranAccueil.mp4') }}" type="video/mp4">
+  </video>
+  <span class="logoScribo">Scribo</span>
+  <div class="contentAccueil">
+    <p>Vers des lieux nouveaux, sur une terre isolée, par des rivages interdits, où des sons, des lumières s'agitent en vieux compagnons, l'écriture transporte, en douce brise, l'âme relâchée. Ecrire, plus qu'un geste, c'est créer, rendre réel, incarner des songes, réifier des pensées, leur donner vie, enfanter des signes !...</p>
+    <button id="myBtn" onclick="myFunction()">Pause</button>
+  </div>
+  <div class="row welcome" id="welcome">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+      <hr>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 speechAccueil cardSpeechAccueil">
+      Bienvenue sur <span class="scribo">Scribo</span>, un lieu aux prétentions d'écritures libre, satirique, drôle, pertinente
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-3 col-xs-3">
+      <hr>
+    </div>
+  </div>
+  <div class="row blockEcriture">
+      <div class="offset-md-2 col-md-3 offset-3 col-6">
+        <img class="imgEcriture" src="{{ asset('images/ecriture3.jpg') }}" alt="Photo scribo-écriture">
+      </div>
+      <div class="offset-md-1 col-md-5 offset-md-1 col-xs-12">
+        <section class="secAccueil blocCard">
+            <p>De nos jours, la liberté d'écrire subsiste presque intacte... Enfin... Si nous prenons soin de ne froisser personne, d'éviter les écueils juridiques, de ne laisser aucune phrase commettre un délit pénal, de ne jamais diffamer, de n'attenter à la vie privée d'aucun quidam. Outre cela, écrivons librement !...   </p>
+        </section>
+      </div>
+  </div>
+  <div class="row welcome" id="statistiques">
+    <div class="col-lg-6 col-md-6 col-sm-3 col-3">
+      <hr>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-6 speechAccueil cardSpeechAccueil">
+      Les statistiques
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+      <hr>
+    </div>
+  </div>
+  <div class="blocCard">
+    <div class="row heightPage">
+      <div class="column accueilDecompte">
+        <div class="card card1 offset-3 col-6">
+          <p><i class="fa fa-user"></i></p>
+          <h3>{{ statUser() }}+</h3>
+          <p>Membres</p>
+        </div>
+      </div>
+      <div class="column accueilDecompte">
+        <div class="card card2 offset-3 col-6">
+          <p><i class="fa fa-feather"></i></p>
+          <h3>{{ statArticles() }}+</h3>
+          <p>Articles</p>
+        </div>
+      </div>
+      <div class="column accueilDecompte">
+        <div class="card card3 offset-3 col-6">
+          <p><i class="fa fa-smile"></i></p>
+          <h3>{{ statComments() }}+</h3>
+          <p>Commentaires</p>
+        </div>
+      </div>
+      <div class="column accueilDecompte">
+        <div class="card card4 offset-3 col-6">
+          <p><i class="fa fa-coffee"></i></p>
+          <h3>100+</h3>
+          <p>Meetings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include('accueil/slider.html.twig') %}
+<div class="space"></div>
+<div id="mySidenav" class="sidenav">
+  <div class="column">
+    <a href="#haut" id="about">Haut</a>
+    <a href="#welcome" id="blog">Welcome</a>
+    <a href="#statistiques" id="projects">Statistiques</a>
+    <a href="#derniers_articles" id="contact">Derniers articles</a>
+  </div>
+</div>
+{% endblock %}
+
+
+

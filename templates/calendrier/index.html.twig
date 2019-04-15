@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier index{% endblock %}
+
+{% block body %}
+    <h1>Calendrier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>BeginAt</th>
+                <th>EndAt</th>
+                <th>Title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendrier in calendriers %}
+            <tr>
+                <td>{{ calendrier.id }}</td>
+                <td>{{ calendrier.beginAt ? calendrier.beginAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.endAt ? calendrier.endAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.title }}</td>
+                <td>
+                    <a href="{{ path('calendrier_show', {'id': calendrier.id}) }}">show</a>
+                    <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendrier_new') }}">Create new</a>
+{% endblock %}

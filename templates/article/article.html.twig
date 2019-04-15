@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scribo-article{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/editorCreationCommentaire.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+  <div class="container articleBody">
+    <div class="article">
+        <h2> {{ article.title }} </h2>
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            Article écrit par <span class="designAuthorArticle">{{ article.author }}</span> le {{ article.createdAt|date("d/m/Y")  }} à {{ article.createdAt|date("H:i")  }}
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <a id="mouseCategories" class="btnCategories"><span style="color: white;">Catégorie(s):</span> <i class="far fa-hand-point-up" style="color: white;"></i></a>
+          </div>
+          <div class="row">
+            <div id="categories" class="categoriesDesign col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              {% for categorie in article.categories %}
+                <div class="text-info"> {{ categorie.title }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+           <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+              <img class="imgArticleShow" src="{{ article.image }}" alt="myPicture">
+           </div>
+        </div>
+        <hr>
+        <section>
+          <div class="textArticleDesign">
+            {{ article.content | raw  }}
+          </div>
+        </section>
+        <hr>
+        {% if app.user and app.user.id == article.user.id  %}
+            <a href="{{ path("article_edit", {'id' : article.id}) }}" class="btn btn-warning">Modifier </a>
+            <a href="{{ path("removeArticle", {'id' : article.id}) }}" class="btn btn-danger">Supprimer </a>
+        {% endif %}
+    </div>
+    <div>
+      <h1> {{ article.comments | length }} commentaires</h1>
+      <hr>
+      <h5>Laisser un commentaire</h5>
+        {{ form_start(formComment)}}
+          {{ form_errors(formComment.content) }}
+      {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+          {{ form_widget(formComment.content,
+          { 'attr' : {'placeholder' : 'Contenu de l\'article', 'class' : 'ckeditor'}}) }}
+          <button class="btn btn-success"> Enregistrer </button>
+      {% else %}
+          {{ form_widget(formComment.content,
+          { 'attr' : {'placeholder' : 'Contenu de l\'article', 'class' : 'ckeditor', 'disabled' : 'disabled'}}) }}
+          <div class="btn btn-info"> Connectez-vous pour laisser un commentaire ! </div>
+      {% endif %}
+        {{ form_end(formComment)}}
+        <hr>
+      {% for comment in article.comments %}
+        <div class="commentaire">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 authorCommentDesign">
+                <div class="designAuthorArticle">{{ comment.author }}</div>
+                <small class="d-flex justify-content-center">
+                  Créé le {{ comment.createdAt | date('d/m/y à H:i') }}
+                </small>
+            </div>
+            <div class="col-lg col-md col-sm col-xs-12 commentDesign">
+              {{ comment.content | raw }}
+            </div>
+          </div>
+        </div>
+        <hr>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="icon-bar">
+    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fab fa-google"></i></a>
+    <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+  </div>
+{% endblock %}
+
+

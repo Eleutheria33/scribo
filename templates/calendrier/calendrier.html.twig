@@ -1,0 +1,19 @@
+{# templates/booking/calendar.html.twig #}
+{% extends 'calendrier/layout.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('calendrier_new') }}">Création nouvel événement</a>
+    <p>
+      These buttons hook up to the <code>prev</code> and <code>next</code> methods.
+    </p>
+
+    <p>
+      <button id='prev'>prev</button>
+      <button id='next'>next</button>
+    </p>
+{% endblock %}
+
+{% block javascripts %}
+     {{ parent() }}
+    <script src="{{ asset('js/calendrier.js') }}" type="text/javascript"></script>
+{% endblock %}

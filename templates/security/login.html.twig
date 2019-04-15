@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Securité-connexion Scribo !{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <form  action="{{ path('security_login') }}" method="POST">
+        <div class="log_connexion" >
+          <div class="justify-content-center col-12 form-group" style="margin-top: 5%;">
+            <input class="input_design form-control" required="required" type="text" name="_username" placeholder="Adresse mail">
+          </div>
+          <div class="justify-content-center col-12 form-group" style="margin-top: 5%;">
+            <input  class="input_design form-control" required="required" type="password" name="_password" placeholder="Mot de passe">
+          </div>
+          <div class="justify-content-center col-12 form-group" style="margin-top: 5%; margin-left: 10%;">
+            <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+            <label for="remember_me">Se souvenir de moi</label>
+          </div>
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+          <!-- _target_path permet de faire suivre l'adresse d'appel de connexion pour la redirection -->
+          {% if app.request.get('_route') != app.request.headers.get('referer') %}
+              <input type="hidden" name="_target_path" value="{{ app.request.headers.get('referer') }}" />
+          {% endif %}
+          <div class="d-flex justify-content-center col-12 form-group" style="margin-top: 5%; margin-bottom: 5%;">
+            <button  type="submit" class="btn_design btn btn-info">
+              <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+      {% if error %}
+          <br>
+          <hr>
+          <br>
+          <span class="d-flex justify-content-start badge badge-danger">Attention !!!  </span>
+          <div class="alert alert-warning d-flex justify-content-center">
+             {{ error.messageKey|trans(error.messageData, 'security') }}
+          </div>
+        {% endif %}
+  </div>
+{% endblock body %}

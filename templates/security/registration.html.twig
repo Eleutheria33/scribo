@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Securité-inscription Scribo !{% endblock %}
+
+{% block body %}
+    <div class="container registration">
+        <div class="">
+            <h1 class="inscription"> Inscription </h1>
+            <br>
+            <span class="glyphicon glyphicon-log-in"></span>
+            <div class="">
+                {{ form_start(formInscription)}}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_widget(formInscription.username,
+                { 'attr' : {'placeholder' : 'Nom', 'class': 'col-md-5 col-xs-10 control-label'}})}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.firstname) }}
+                {{ form_widget(formInscription.firstname,
+                { 'attr' : {'placeholder' : 'Prénom', 'class': 'col-md-5 col-xs-10 control-label'}})}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.pseudo) }}
+                {{ form_widget(formInscription.pseudo,
+                { 'attr' : {'placeholder' : 'Pseudonyme', 'class': 'col-md-5 col-xs-10 control-label'}})}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.email) }}
+                {{ form_widget(formInscription.email,
+                { 'attr' : {'placeholder' : 'Email', 'class': 'col-md-5 col-xs-10 control-label'}} )}}
+                <hr class="interligne">
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.numberAdr) }}
+                {{ form_widget(formInscription.numberAdr,
+                { 'attr' : {'placeholder' : 'Numéro', 'class': 'col-md-4 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.adress) }}
+                {{ form_widget(formInscription.adress,
+                { 'attr' : {'placeholder' : 'Adresse', 'class': 'col-md-10 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.villeAdr) }}
+                {{ form_widget(formInscription.villeAdr,
+                { 'attr' : {'placeholder' : 'Ville', 'class': 'col-md-6 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.codePostal) }}
+                {{ form_widget(formInscription.codePostal,
+                { 'attr' : {'placeholder' : 'Code postal', 'class': 'col-md-5 col-xs-10 control-label'}} )}}
+                <hr class="interligne">
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formInscription.password) }}
+                {{ form_widget(formInscription.password,
+                { 'attr' : {'placeholder' : 'Mot de passe', 'class': 'col-md-6 col-xs-10 control-label'}}) }}
+                <br>
+                {{ form_errors(formInscription.confirm_password) }}
+                {{ form_widget(formInscription.confirm_password,
+                { 'attr' : {'placeholder' : 'Confirmation mot de passe', 'class': 'col-md-6 col-xs-10 control-label'}}) }}
+                <br>
+                <button class="btn btn-success"> Enregistrer </button>
+                {{ form_end(formInscription)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+<nav id="navbar" class="navbar navbar-expand-md bg-dark navbar-dark sticky">
+  <i class="fas fa-feather-alt right"></i>
+  <a class="navbar-brand" href="#"><span class="logo">Scribo</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item active accueil">
+          <a class="nav-link" href="{{ path('home') }}">Accueil</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Monde</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Sport</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="#">Politique</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="#">Histoire</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Contact</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Chat</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="#">Messagerie</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="#">Annonces</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Articles</a>
+          <ul class="dropdown-menu">
+              {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <li><a class="dropdown-item" href="{{ path('article_create') }}">Création</a></li>
+                <hr>
+              {% endif %}
+              <li><a class="dropdown-item" href="{{ path('articles') }}">Consultation</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Paramètres</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ path('calendrier_month') }}">Calendrier</a></li>
+              {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <hr>
+                <li><a class="dropdown-item" href="{{ path('calendrier_index') }}">Gestion événements</a></li>
+                <hr>
+                <li><a class="dropdown-item" href="{{ path('security_edit') }}">Modification profil</a></li>
+              {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <ul class="navbar-nav">
+      {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+        <li class="nav-item active"><a class="nav-link connect" href="{{ path('security_registration') }}"><i class="fas fa-user-plus"></i>  S'inscrire</a>
+        </li>
+        <li class="nav-item active"><a class="nav-link connect" href="{{ path('security_login') }}">
+          <i class="fas fa-sign-in-alt"></i> connexion</a>
+        </li>
+      {% else %}
+        <li class="nav-item active"><a class="nav-link connect" href="{{ path('security_logout') }}">
+          <i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+

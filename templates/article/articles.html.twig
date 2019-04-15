@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}scribo-articles{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/editorCreationCommentaire.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+   <div class="row">
+        {% block gauche %}
+            <div class="split1 left">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 colLeft">
+                    {% for article in articles  %}
+                        <div class="articlesLiens cardArticles">
+                            <a href="#article{{ article.id }}">
+                                 {{ article.title }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endblock gauche %}
+        {% block droite %}
+            <div class="split2 right">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 colCenter">
+                    <div class="articles">
+                        {% for article in articles  %}
+                            <div id="article{{ article.id }}" class="cadreArticle">
+                                <a href="#article{{ article.id }}" class="articleCollapse">
+                                {% for label, messages in app.flashes %}
+                                    {% for message in messages %}
+                                            <div id="flashArea" class="alert alert-success {{ label }}" onclick="deleteFlash()">
+                                                <strong>Succès !</strong> L'article <strong> {{ message }} </strong> a été supprimé  !
+                                                <span class="right">x</span>
+                                            </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                    <h2> {{ article.title }} </h2>
+                                </a>
+                                <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            Article écrit par
+                                            <span class="designAuthorArticle">{{ article.author }}</span>
+                                            le {{ article.createdAt|date("d/m/Y")  }} à {{ article.createdAt|date("H:i")  }}
+                                        </div>
+                                        <!-- <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <a id="mouseCategories" class="btnCategories"><span style="color: white;">Catégorie(s):</span> <i class="far fa-hand-point-up" style="color: white;"></i></a>
+                                        </div>
+                                        <div class="row">
+                                            <div id="categories" class="categoriesDesign col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                {% for categorie in article.categories %}
+                                                   <div class="text-info"> {{ categorie.title }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        </div> -->
+                                </div>
+                                <hr>
+                                <div  class='collapse show'>
+                                    <div class="row">
+                                        <img class="col-md-6 col-sm-8 col-xs-12 myImg" src="{{ article.image }}" alt="myPicture">
+                                    </div>
+                                    <hr>
+                                    <div class="articlesContent">
+                                        {{ article.content|raw  }}
+                                    </div>
+                                    <br>
+                                    <a href="{{ path("article", {'id' : article.id}) }}" class="suiteArticle btn">Voir...</a>
+                                    <hr class="hrBolder">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endblock droite %}
+    </div>
+{% endblock %}
+

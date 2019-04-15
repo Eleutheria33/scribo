@@ -1,0 +1,52 @@
+<div class="row welcome" id="derniers_articles">
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <hr>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 speechAccueil cardSpeechAccueil">
+   {{ articles|length }} derniers articles
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+    <hr>
+  </div>
+</div>
+
+{% set cpt = articles|length %}
+{% set lengthImg = (articles|length) %}
+{% set decpt = 0 %}
+<div class="allSlider" data-qte="{{ articles|length }}">
+  <div class="row accueilSlider">
+    <div class="col-md-6 col-sm-4 col-12">
+      <div class="contain">
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        {% for article in articles  %}
+           {% set decpt = decpt + 1 %}
+           <div class="mySlides goArticle">
+            <div class="numbertext"> {{ decpt }} / {{ cpt }}</div>
+            <a href="{{ path("article", {'id' : article.id}) }}"><img src="{{ article.image }}" ></a>
+          </div>
+        {% endfor %}
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery col-md-3 col-sm-4 col-6">
+      <div class="cadreVignettes">
+         {% set decpt = 0 %}
+         {% for article in articles  %}
+           {% set decpt = decpt + 1 %}
+            <div id="vignettes" class="vignettes">
+              <img class="demo cursor widthImg" src="{{ article.image }}"  onmouseover="currentSlide({{ decpt }})" onclick="currentSlide({{ decpt }})" alt="{{ article.title }}">
+            </div>
+            <div class="data-hidden">{{ article.content|raw }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="content" class="col-md-3 col-sm-4 col-6">
+        <p id="titleArt"></p>
+    </div>
+  </div>
+  <hr>
+</div>
+<script src="{{ asset('js/mediaQueries.js') }}" type="text/javascript"></script>

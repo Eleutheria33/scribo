@@ -1,0 +1,8 @@
+# config/packages/ckfinder.yml
+
+ckfinder:
+    connector:
+        authenticationClass: App\CustomCKFinderAuth\CustomCKFinderAuth
+
+# imports:
+#     - { resource: ckfinder_config.php }

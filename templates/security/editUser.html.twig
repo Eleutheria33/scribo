@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Securité-modification Scribo !{% endblock %}
+
+{% block body %}
+    <div class="container registration">
+        <div class="">
+            <h1 class="inscription"> Modification </h1>
+            <br>
+            <span class="glyphicon glyphicon-log-in"></span>
+            <div class="">
+                {{ form_start(formEdit)}}
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.firstname) }}
+                {{ form_widget(formEdit.firstname,
+                { 'attr' : {'placeholder' : 'Prénom', 'class': 'col-md-5 col-xs-10 control-label'}})}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.pseudo) }}
+                {{ form_widget(formEdit.pseudo,
+                { 'attr' : {'placeholder' : 'Pseudonyme', 'class': 'col-md-5 col-xs-10 control-label'}})}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.email) }}
+                {{ form_widget(formEdit.email,
+                { 'attr' : {'placeholder' : 'Email', 'class': 'col-md-5 col-xs-10 control-label'}} )}}
+                <hr class="interligne">
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.numberAdr) }}
+                {{ form_widget(formEdit.numberAdr,
+                { 'attr' : {'placeholder' : 'Numéro', 'class': 'col-md-4 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.adress) }}
+                {{ form_widget(formEdit.adress,
+                { 'attr' : {'placeholder' : 'Adresse', 'class': 'col-md-10 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.villeAdr) }}
+                {{ form_widget(formEdit.villeAdr,
+                { 'attr' : {'placeholder' : 'Ville', 'class': 'col-md-6 col-xs-10 control-label'}} )}}
+                <br>
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.codePostal) }}
+                {{ form_widget(formEdit.codePostal,
+                { 'attr' : {'placeholder' : 'Code postal', 'class': 'col-md-5 col-xs-10 control-label'}} )}}
+                <hr class="interligne">
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formEdit.password) }}
+                {{ form_widget(formEdit.password,
+                { 'attr' : {'placeholder' : 'Mot de passe', 'class': 'col-md-6 col-xs-10 control-label'}}) }}
+                <br>
+                <button class="btn btn-success"> Valider </button>
+                {{ form_end(formEdit)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}
