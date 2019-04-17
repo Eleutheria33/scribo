@@ -7,7 +7,7 @@ var currentScrollPos = window.pageYOffset;
     navTools.style.top = "0";
   } else {
 
-    navTools.style.top = "-"+navTools.clientHeight+"px";
+    navTools.style.top = "-"+navTools.clientHeight+"px ";
   }
   prevScrollpos = currentScrollPos;
 }

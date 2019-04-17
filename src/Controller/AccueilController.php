@@ -20,7 +20,7 @@ class AccueilController extends AbstractController
 
         $articles =  $repoA->findSixLastArticles();
         foreach ($articles as $article) {
-                $article->setContent($TroncText->getTextTronque($article->getContent(), 3, 25));
+                $article->setContent($TroncText->getTextTronque($article->getContent(), 2, 25));
 
           }
         return $this->render('accueil/home.html.twig', [

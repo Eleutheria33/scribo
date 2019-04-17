@@ -9,7 +9,7 @@ var editor = CKEDITOR.replace('article[content]',
     colorButton_colors : 'CF5D4E,454545,FFF,CCC,DDD,CCEAEE,66AB16',
     colorButton_enableAutomatic : false,
     /*toolbar: [
-      { name: 'insert', items: [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] },
+      { name: 'insert ', items: [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] },
       { name: 'document', items: [ 'Print' ] },
       { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
       { name: 'styles', items: [ 'Format', 'Font', 'FontSize' ] },

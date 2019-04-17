@@ -16,6 +16,6 @@ if (window.matchMedia("(min-width: 1280px) and (max-width: 2400px)").matches) {
   }
 } else if (window.matchMedia("(min-width: 350px) and (max-width: 600px)").matches) {
   for (i = 0; i < imgChoiceSlider.length; i++) {
-    imgChoiceSlider[i].style.width = (500 / parseInt(numberImg)+"%");
+    imgChoiceSlider[i].style.width = (500 / parseInt(numberImg)+" %");
   }
 }

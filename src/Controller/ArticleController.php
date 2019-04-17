@@ -79,7 +79,7 @@ class ArticleController extends AbstractController
           foreach ($allCategory as $category) {
               $tabAllCateg[] = $category->getId();
             }
-          // constitution du tableau des nouvelles catégories
+          // création du tableau des nouvelles catégories
           $newCategories = $formArticle->getData()->getCategories();
           foreach ($newCategories as $categorie) {
             $tabNewCateg[] = $categorie->getId();

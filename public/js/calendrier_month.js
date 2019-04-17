@@ -16,7 +16,7 @@ $(function () {
 
     });
 
-// fonction de récupération de la date (mois, etc.) sur le calendrier
+// fonction de récupération de la date (mois, etc. ) sur le calendrier
     $('a.fc-day-number').click(function(event) {
        event.preventDefault();
        alert('coucou & re');

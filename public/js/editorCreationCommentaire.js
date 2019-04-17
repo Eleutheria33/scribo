@@ -59,7 +59,7 @@ editorC.on( 'disabled', function( evt ) {
     evt.cancel();
 } );
 
-/*{ name: 'insert', items: [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] }
+/*{ name: 'insert', items: [ 'Image ','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] }
       { name: 'document', items: [ 'Print' ] },
       { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
       { name: 'styles', items: [ 'Format', 'Font', 'FontSize' ] },

@@ -25,7 +25,7 @@ class Article
      * @Assert\Length(
      *      min = 10,
      *      max = 150,
-     *      minMessage = "Votre titre doit faire au moins {{ limit }} caractères de longueur",
+     *      minMessage = "Votre titre doit faire au moins {{ limit }} caractères de longueur ",
      *      maxMessage = "Votre titre ne peut pas dépasser {{ limit }} caractères de longueur"
      * )
      */

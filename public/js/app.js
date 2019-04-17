@@ -11,7 +11,7 @@ function myFunction() {
   }
 }
 
-/* gestion navbar hiden in scrolldown visible in scrollup*/
+/* Gestion navbar hiden in scrolldown visible in scrollup*/
 
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {

@@ -24,7 +24,7 @@ $(function () {
                     filters: {}
                 },
                 error: function () {
-                    alert("There was an error while fetching FullCalendar!");
+                    alert("There was an error while fetching FullCalendar !");
                 }
             }
         ]
