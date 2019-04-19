@@ -1,23 +1,16 @@
 <div id="myFooterPanel" class="myFooterPanel">
-  <div class="row">
-    <div class="col-md-3 col-xs-0 infos">
+  <div class="row allFooter">
+    <div class="offset-lg-2 offset-md-2 offset-sm-2 offset-1 col-lg-4 col-md-4 col-12 infos">
+      {{ include('footer/rsociaux.html.twig') }}
     </div>
-    <div class="col-md-2 col-xs-24 infos">
+    <div class="offset-1 col-lg-2 col-md-2 offset-md-0 offset-sm-0 offset-lg-0 col-9 infos autres">
+      <br><h6 class="titreFooter">Autres</h6><br>
       <a href="#">About</a>
       <a href="#">Services</a>
       <a href="#">Clients</a>
       <a href="#">Contact</a>
     </div>
-
-    <div class="col-md-2 col-xs-3 infos">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="col-md-2 col-xs-0 ">
-    </div>
-    <div class="col-md-1 col-xs-1 infos">
+    <div class="offset-lg-2 offset-md-2 offset-sm-2 col-lg-1 col-md-1 col-1 infos">
       <a href="javascript:void(0)" class="closebtn right" onclick="closeNav()">X</a>
     </div>
   </div>

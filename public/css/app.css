@@ -188,6 +188,78 @@ width:200px;
 
 
 /*---------------- footer page accueil  ---------------------------------*/
+
+/* footer -------------------------- */
+
+.frameFacebookImg{
+border:none;
+overflow:hidden;
+width:65px;
+height:65px;
+margin-top:3px;
+}
+.titreFooter{
+color: darkcyan ;
+font-weight: bolder;
+font-size: 20px;
+}
+.fafooter .fab {
+padding: 10px;
+font-size: 20px;
+text-align: center;
+text-decoration: none;
+margin: 5px 2px;
+color: #e4f1f6;
+opacity: 0.5;
+}
+/* .fafooter{
+border: 2px solid red;
+}
+.reseaux{
+border: 2px solid white;
+}
+.partage{
+border: 2px solid yellow;
+}
+.autres{
+border: 2px solid pink;
+}
+.allFooter{
+border: 2px solid lightgreen;
+} */
+
+.shortfooter > a{
+font-size: 15px !important;
+text-align: left;
+text-decoration: none;
+color: white;
+padding: 0px !important;
+}
+.fafooter .fab:hover {
+opacity: 1;
+}
+
+.fa-facebook-square {
+background: #3B5998;
+color: white;
+}
+.fa-twitter {
+border-radius: 50%;
+background: #55ACEE;
+color: white;
+}
+.fa-linkedin-in {
+background: #dd4b39;
+color: white;
+border-radius: 50%;
+}
+.fa-youtube {
+border-radius: 50%;
+background: #bb0000;
+color: white;
+}
+
+
 .myFooterPanel  {
   width: 0;
   position: fixed;
