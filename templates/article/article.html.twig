@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scribo-article{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('js/editorCreationCommentaire.js') }}"></script>
+    <script src="{{ asset('js/rstitle.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}
   <div class="container articleBody">
     <div class="article">
-        <h2> {{ article.title }} </h2>
+        <h2 id="rsTitle"> {{ article.title }} </h2>
         <div class="row">
           <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
             Article écrit par <span class="designAuthorArticle">{{ article.author }}</span> le {{ article.createdAt|date("d/m/Y")  }} à {{ article.createdAt|date("H:i")  }}
@@ -80,12 +81,14 @@
     </div>
   </div>
   <div class="icon-bar">
-    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="google"><i class="fab fa-google"></i></a>
-    <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+    <!-- Facebook -->
+                   <a target="_blank" class="facebook" title="Facebook" href="https://www.facebook.com/sharer.php?u={{ app.request.scheme ~ "://" ~ app.request.httpHost ~ app.request.requestUri }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=yes,toolbar=yes,resizable=yes,scrollbars=yes,height=500,width=700');return false;"><i class="rsociaux fab  fa-facebook-square" title="facebook"></i></a>
+            <!-- Twitter -->
+                   <a target="_blank" class="twitter" title="Twitter" href="https://twitter.com/share?url={{ app.request.scheme ~ "://" ~ app.request.httpHost ~ app.request.requestUri }}" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><i class="rsociaux fab  fa-twitter" title="twitter"></i></a>
+            <!-- Linkedin -->
+                   <a target="_blank" class="linkedin" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ app.request.scheme ~ "://" ~ app.request.httpHost ~ app.request.requestUri }}" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><i class="rsociaux fab fa-linkedin" title="linkedin"></i></a>
   </div>
+
 {% endblock %}
 
 

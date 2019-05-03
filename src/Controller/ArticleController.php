@@ -162,7 +162,7 @@ class ArticleController extends AbstractController
 
         $articles = $repo->getfindOrderByArticles();
         foreach ($articles as $article) {
-                $article->setContent($TroncText->getTextTronque($article->getContent(), 3, 25));
+                $article->setContent($TroncText->getTextTronque($article->getContent(), 3, 25)[0]);
 
           }
 
